@@ -1,0 +1,12 @@
+[
+    {
+        "amount": 100,
+        "category": "早餐",
+        "payment": "現金"
+    },
+    {
+        "amount": 250,
+        "category": "午餐",
+        "payment": "刷卡"
+    }
+]
