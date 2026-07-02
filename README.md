@@ -12,6 +12,7 @@
 - [x] Day 4 - Function
 - [x] Day 5 - Dictionary
 - [x] Day 6 - Expense Tracker v1
+- [x] Day 7 - Add JSON function to save and load file
 
 ---
 
@@ -34,7 +35,10 @@
 - ✅ 顯示所有支出
 - ✅ 計算總支出
 - ✅ 計算今日剩餘金額
-
+- ✅ 修改支出
+- ✅ 刪除支出
+- ✅ 儲存到 JSON
+- ✅ 讀取 JSON
 **Coming Soon**
 - ⏳ 修改支出
 - ⏳ 刪除支出
