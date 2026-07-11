@@ -13,6 +13,8 @@
 - [x] Day 5 - Dictionary
 - [x] Day 6 - Expense Tracker v1
 - [x] Day 7 - Add JSON function to save and load file
+- [x] Day 8 - Add Exception Handling and check function
+- [x] Day 9 - Single Responsibility Principle and Refactoring
 
 ---
 
@@ -37,10 +39,14 @@
 - ✅ 計算今日剩餘金額
 - ✅ 修改支出
 - ✅ 刪除支出
-- ✅ 儲存到 JSON
-- ✅ 讀取 JSON
-**Coming Soon**
-- ⏳ 修改支出
-- ⏳ 刪除支出
-- ⏳ 儲存到 JSON
-- ⏳ 讀取 JSON
+- ✅ JSON 資料儲存與讀取
+- ✅ 輸入驗證
+- ✅ 例外處理
+- ✅ 共用輸入驗證
+- ✅ 共用確認函式
+
+**持續重構 Expense Tracker**
+- 讓 main() 更簡潔
+- 改善程式架構
+- 學習模組化（Modules）
+- 為未來學習物件導向（OOP）打好基礎

@@ -1,12 +1,7 @@
 [
     {
-        "amount": 100,
-        "category": "早餐",
+        "amount": 180,
+        "category": "咖啡",
         "payment": "現金"
-    },
-    {
-        "amount": 250,
-        "category": "午餐",
-        "payment": "刷卡"
     }
 ]

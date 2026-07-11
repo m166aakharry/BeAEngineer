@@ -10,24 +10,28 @@ def save_data(expenses):
         json.dump(expenses, file, ensure_ascii=False, indent=4)
 
 
-def payment_type(keyin):
-    if keyin == 1:
-        return "現金"
-    elif keyin == 2:
-        return "刷卡"
-    else:
-        return "未知"
+def payment_type():
+    while True:
+        keyin = inputchk("現金請輸入1,刷卡請輸入2:")
+        if keyin == 1:
+            return "現金"
+        elif keyin == 2:
+            return "刷卡"
+        print("輸入錯誤，現金請輸入1，刷卡請輸入2:")
+        
+            
 
 def add_expense(expenses):
-    amount = int(input(f"請輸入金額:"))
+    amount = inputchk(f"請輸入金額:")
     category = input(f"請輸入項目:")
-    payment = payment_type(int(input("現金請輸入1,刷卡請輸入2:")))
+    payment = payment_type()
     expense={
         "amount":amount,
         "category":category,
         "payment":payment
     }
-    expenses.append(expense)
+    if confirm("確定要增加嗎?Y/N:"):    
+        expenses.append(expense)
 
 def show_expenses(expenses):
     print("\n=====今日支出=====")
@@ -49,14 +53,42 @@ def calculate_total(expenses):
     return total
 
 def delete_expense(expenses):
-    delete_number = int(input("請輸入要刪除的項目編號:"))
-    expenses.pop(delete_number - 1)
+    index = input_expenses_index("請輸入要刪除的項目編號:",expenses)
+    if confirm("確定要刪除嗎?Y/N:"):
+        expenses.pop(index)
+
 
 def fix_expense(expenses):
-    fix_num = int(input("請輸入要修改的支出編號:"))
-    fix_expense = int(input("請輸入正確的金額:"))
-    expenses[fix_num-1]["amount"]=fix_expense
+    index = input_expenses_index("請輸入要修改的支出編號:"),expenses)
+    new_amount = inputchk("請輸入正確的金額:")
+    if confirm("確定要修改嗎?Y/N:"):
+        expenses[index]["amount"] = new_amount
 
+def inputchk(message):
+    while True:
+        try:
+            keyin = int(input(message))
+            return keyin
+        except ValueError:
+            print("輸入錯誤，請重新輸入數字！")
+        
+def input_expenses_index(message,expenses):
+    index = inputchk(message)
+    while True:
+        if 0 < index <= len(expenses):
+            return index-1
+        index = inputchk("輸入錯誤，請輸入小於已有的編號！")
+
+def confirm(message):
+    while True:
+        check = input(message).upper()
+        if check == "Y":
+            return True
+        elif check == "N":
+            return False
+        else:
+            print ("請重新輸入:")
+            
 
 def menu():
     print("""
@@ -71,10 +103,11 @@ def menu():
         """
     )
     while True : 
-        choose = int(input("請選擇："))
+        
+        choose = inputchk("請選擇:")
         if 1 <= choose <= 6 :
-            break
-    return choose
+            return choose
+        print("請輸入 1~6!")
 
 
 def main():
@@ -105,5 +138,4 @@ def main():
             print(f"總支出為 : {total}\n")
         elif choose == 6:
             break
-
 main()
