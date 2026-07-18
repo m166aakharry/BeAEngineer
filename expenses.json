@@ -1,7 +1,17 @@
 [
     {
-        "amount": 180,
-        "category": "咖啡",
+        "amount": 81,
+        "category": "宵夜",
+        "payment": "現金"
+    },
+    {
+        "amount": 100,
+        "category": "吃飯",
+        "payment": "刷卡"
+    },
+    {
+        "amount": 200,
+        "category": "飲料",
         "payment": "現金"
     }
 ]

@@ -22,22 +22,15 @@ def payment_type():
             
 
 def add_expense(expenses):
-    amount = inputchk(f"請輸入金額:")
-    category = input(f"請輸入項目:")
-    payment = payment_type()
-    expense={
-        "amount":amount,
-        "category":category,
-        "payment":payment
-    }
+    #取得資料
+    expense = input_new_expense()
+    #存入資料庫
     if confirm("確定要增加嗎?Y/N:"):    
         expenses.append(expense)
+        return True
 
 def show_expenses(expenses):
     print("\n=====今日支出=====")
-    if len(expenses) == 0:
-        print("目前沒有任何支出")
-        return
     for index,expense in enumerate(expenses, start=1):
         print(
             f'{index}.'
@@ -56,13 +49,16 @@ def delete_expense(expenses):
     index = input_expenses_index("請輸入要刪除的項目編號:",expenses)
     if confirm("確定要刪除嗎?Y/N:"):
         expenses.pop(index)
+        return True
 
 
-def fix_expense(expenses):
-    index = input_expenses_index("請輸入要修改的支出編號:"),expenses)
+def update_expense(expenses):
+    index = input_expenses_index("請輸入要修改的支出編號:",expenses)
     new_amount = inputchk("請輸入正確的金額:")
     if confirm("確定要修改嗎?Y/N:"):
-        expenses[index]["amount"] = new_amount
+        update_data(expenses[index],new_amount)
+        return True
+    
 
 def inputchk(message):
     while True:
@@ -88,6 +84,27 @@ def confirm(message):
             return False
         else:
             print ("請重新輸入:")
+
+def has_expenses(expenses):
+    if len(expenses) == 0:
+        print("目前沒有任何支出")
+        return False
+    else:
+        return True
+
+def update_data(expense,newdata):
+            expense["amount"] = newdata
+
+def input_new_expense():
+        amount = inputchk(f"請輸入金額:")
+        category = input(f"請輸入項目:")
+        payment = payment_type()
+        expense={
+            "amount":amount,
+            "category":category,
+            "payment":payment
+        }
+        return expense
             
 
 def menu():
@@ -115,22 +132,24 @@ def main():
     while True : 
         choose = menu()
         if choose == 1:
-            add_expense(expenses)
-            save_data(expenses)
-        elif choose == 2:
-            show_expenses(expenses)
-            if len(expenses) == 0:
+            if add_expense(expenses):
+                save_data(expenses)
+        elif choose == 2:            
+            if not has_expenses(expenses):
                 continue
-            delete_expense(expenses)
-            save_data(expenses)
+            show_expenses(expenses)
+            if delete_expense(expenses):
+                save_data(expenses)
         elif choose == 3:
-            show_expenses(expenses)
-            if len(expenses) == 0:
+            if not has_expenses(expenses):
                 continue
-            fix_expense(expenses)  
-            save_data(expenses)
+            show_expenses(expenses)
+            if update_expense(expenses): 
+                save_data(expenses)
 
         elif choose == 4:
+            if not has_expenses(expenses):
+                continue
             show_expenses(expenses)
             print("\n")
         elif choose == 5:
