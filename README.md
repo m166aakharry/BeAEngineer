@@ -15,7 +15,8 @@
 - [x] Day 7 - Add JSON function to save and load file
 - [x] Day 8 - Add Exception Handling and check function
 - [x] Day 9 - Single Responsibility Principle and Refactoring
-
+- [x] Day 10 - Modeling 
+- [x] Day 11 - OOP
 ---
 
 ## 🛠 Tech Stack
@@ -44,9 +45,9 @@
 - ✅ 例外處理
 - ✅ 共用輸入驗證
 - ✅ 共用確認函式
+- ✅ 模組化功能
+- ✅ 物件導向化程式
 
-**持續重構 Expense Tracker**
-- 讓 main() 更簡潔
+**持續改善 Expense Tracker**
+- 加入封裝
 - 改善程式架構
-- 學習模組化（Modules）
-- 為未來學習物件導向（OOP）打好基礎

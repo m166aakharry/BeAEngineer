@@ -10,7 +10,7 @@
         "payment": "刷卡"
     },
     {
-        "amount": 200,
+        "amount": 150,
         "category": "飲料",
         "payment": "現金"
     }
