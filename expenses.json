@@ -1,17 +1,32 @@
 [
     {
-        "amount": 81,
-        "category": "宵夜",
+        "amount": 150,
+        "category": "飲料",
         "payment": "現金"
     },
     {
-        "amount": 100,
-        "category": "吃飯",
-        "payment": "刷卡"
+        "amount": 85,
+        "category": "炒飯",
+        "payment": "現金"
     },
     {
-        "amount": 150,
-        "category": "飲料",
+        "amount": 180,
+        "category": "穿牆貓",
+        "payment": "現金"
+    },
+    {
+        "amount": 160,
+        "category": "晚餐拉麵",
+        "payment": "現金"
+    },
+    {
+        "amount": 160,
+        "category": "恬逸",
+        "payment": "現金"
+    },
+    {
+        "amount": 190,
+        "category": "鱔魚意麵",
         "payment": "現金"
     }
 ]

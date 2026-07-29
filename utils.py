@@ -1,3 +1,4 @@
+from expense import Expense
 
 def payment_type():
     while True:
@@ -33,23 +34,8 @@ def confirm(message):
         else:
             print ("請重新輸入:")
 
-def has_expenses(expenses):
-    if len(expenses) == 0:
-        print("目前沒有任何支出")
-        return False
-    else:
-        return True
-
-def update_data(expense,newdata):
-            expense["amount"] = newdata
-
 def input_new_expense():
         amount = inputchk(f"請輸入金額:")
         category = input(f"請輸入項目:")
         payment = payment_type()
-        expense={
-            "amount":amount,
-            "category":category,
-            "payment":payment
-        }
-        return expense
+        return Expense(amount, category, payment)
